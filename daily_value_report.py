@@ -42,11 +42,11 @@ NEWS_TICKERS = {
     "QCOM":   "Qualcomm",
     "GOOGL":  "Alphabet (Google)",
     "OKLO":   "Oklo",
-    "8001.T": "Itochu 伊藤忠",      # ITOCY → 8001.T
-    "8058.T": "Mitsubishi 三菱商事", # MSBHF → 8058.T
-    "8031.T": "Mitsui 三井物産",     # MITSY → 8031.T
-    "8053.T": "Sumitomo 住友商事",   # SSUMY → 8053.T
-    "8002.T": "Marubeni 丸紅",       # MARUY → 8002.T
+    "8001.T": "Itochu trading company",
+    "8058.T": "Mitsubishi trading company",
+    "8031.T": "Mitsui trading company",
+    "8053.T": "Sumitomo trading company",
+    "8002.T": "Marubeni trading company",
 }
 
 # Full screening universe for DCF (includes both US & Japan ADR tickers)
@@ -55,7 +55,7 @@ SCREENING_UNIVERSE = list(NEWS_TICKERS.keys())
 # DCF hyper-parameters (Buffett-conservative)
 TERMINAL_GROWTH_RATE = 0.025   # 2.5%
 DISCOUNT_RATE        = 0.10    # 10%
-MIN_ROIC_THRESHOLD   = 0.08    # 15%
+MIN_ROIC_THRESHOLD   = 0.05    # 5%
 NEWS_PER_TICKER      = 3
 LOOKBACK_HOURS       = 24
 
@@ -232,7 +232,7 @@ def analyse_ticker(ticker: str) -> dict | None:
         fcf  = ocf + capex if capex < 0 else ocf - capex
 
         if fcf <= 0:
-            log.info(f"[DCF] {ticker}: FCF ≤ 0, noted but continuing.")
+            log.info(f"[DCF] {ticker}: FCF ≤ 0, noted.")
             #return None
 
         # ── ROIC filter ───────────────────────────────────────────────────
