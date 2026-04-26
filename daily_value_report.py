@@ -42,11 +42,11 @@ NEWS_TICKERS = {
     "QCOM":   "Qualcomm",
     "GOOGL":  "Alphabet (Google)",
     "OKLO":   "Oklo",
-    "8001.T": "Itochu trading company",
-    "8058.T": "Mitsubishi trading company",
-    "8031.T": "Mitsui trading company",
-    "8053.T": "Sumitomo trading company",
-    "8002.T": "Marubeni trading company",
+    "8001.T": "Itochu",
+    "8058.T": "Mitsubishi",
+    "8031.T": "Mitsui",
+    "8053.T": "Sumitomo",
+    "8002.T": "Marubeni",
 }
 
 # Full screening universe for DCF (includes both US & Japan ADR tickers)
