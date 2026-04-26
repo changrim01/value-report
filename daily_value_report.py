@@ -57,7 +57,7 @@ TERMINAL_GROWTH_RATE = 0.025   # 2.5%
 DISCOUNT_RATE        = 0.10    # 10%
 MIN_ROIC_THRESHOLD   = 0.05    # 5%
 NEWS_PER_TICKER      = 3
-LOOKBACK_HOURS       = 24
+LOOKBACK_HOURS       = 72
 
 # ─────────────────────────────────────────────────────────────────────────────
 # LOGGING SETUP
@@ -95,7 +95,7 @@ def fetch_news_for_ticker(ticker: str, company_name: str, max_items: int = NEWS_
                 pub_time = datetime(*entry.published_parsed[:6], tzinfo=timezone.utc)
 
             if pub_time and pub_time < cutoff:
-                continue   # skip articles older than 24h
+                continue   # pub time이 nono이면 날짜 확인 없이 그냥 포함
 
             results.append({
                 "title":     entry.get("title", "N/A"),
