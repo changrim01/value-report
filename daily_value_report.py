@@ -57,7 +57,7 @@ TERMINAL_GROWTH_RATE = 0.025   # 2.5%
 DISCOUNT_RATE        = 0.10    # 10%
 MIN_ROIC_THRESHOLD   = 0.05    # 5%
 NEWS_PER_TICKER      = 3
-LOOKBACK_HOURS       = 24
+LOOKBACK_HOURS       = 72
 
 # ─────────────────────────────────────────────────────────────────────────────
 # LOGGING SETUP
