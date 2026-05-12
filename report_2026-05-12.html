@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Value Report</title>
+
+<style>
+  /* ── Reset & base ── */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #f0f2f5;
+    color: #1a1a2e;
+    padding: 16px;
+  }
+  .wrapper   { max-width: 680px; margin: 0 auto; }
+  /* ── Header ── */
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+    color: #e0e0e0;
+    border-radius: 12px 12px 0 0;
+    padding: 28px 24px 20px;
+  }
+  .header h1  { font-size: 1.45rem; letter-spacing: .4px; color: #fff; }
+  .header p   { font-size: .82rem; color: #a0aec0; margin-top: 4px; }
+  .badge {
+    display: inline-block;
+    background: #e94560;
+    color: #fff;
+    font-size: .7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  /* ── Sections ── */
+  .section {
+    background: #fff;
+    padding: 22px 20px;
+    border-left: 4px solid #0f3460;
+    margin-top: 2px;
+  }
+  .section:last-child { border-radius: 0 0 12px 12px; }
+  .section-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0f3460;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e8edf2;
+  }
+  /* ── DCF Table ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .83rem;
+  }
+  th {
+    background: #1a1a2e;
+    color: #a0c4ff;
+    padding: 9px 10px;
+    text-align: left;
+    font-weight: 600;
+  }
+  td { padding: 8px 10px; border-bottom: 1px solid #f0f2f5; }
+  tr:hover td { background: #f7f9fc; }
+  .rank-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    font-size: .72rem;
+    font-weight: 700;
+    color: #fff;
+  }
+  .r1 { background: #f6c90e; color: #1a1a2e; }
+  .r2 { background: #9aa5b1; }
+  .r3 { background: #cd7f32; }
+  .r45{ background: #3a7bd5; }
+  .mos-positive { color: #27ae60; font-weight: 700; }
+  .mos-negative { color: #e94560; font-weight: 700; }
+  /* ── News grid ── */
+  .news-company { font-weight: 700; color: #0f3460; margin-top: 14px; font-size: .9rem; }
+  .news-item { margin: 5px 0 5px 10px; font-size: .82rem; }
+  .news-item a {
+    color: #3a7bd5;
+    text-decoration: none;
+    line-height: 1.5;
+  }
+  .news-item a:hover { text-decoration: underline; }
+  .news-meta { font-size: .72rem; color: #9aa5b1; margin-left: 10px; }
+  /* ── Footer ── */
+  .footer {
+    font-size: .72rem;
+    color: #9aa5b1;
+    text-align: center;
+    padding: 14px 0 4px;
+    line-height: 1.6;
+  }
+  /* ── Mobile ── */
+  @media (max-width: 480px) {
+    body { padding: 8px; }
+    .header { padding: 18px 14px 14px; }
+    table { font-size: .76rem; }
+    th, td { padding: 7px 7px; }
+  }
+</style>
+
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- ── HEADER ── -->
+  <div class="header">
+    <h1>📊 Daily Value Investing Report
+      <span class="badge">AUTO</span>
+    </h1>
+    <p>Warren Buffett–style Proxy DCF Screener &nbsp;|&nbsp; 2026-05-12 07:47 KST</p>
+  </div>
+
+  <!-- ── DCF TOP-5 ── -->
+  <div class="section">
+    <div class="section-title">🏆 Top-5 Value Picks (Proxy DCF Screening)</div>
+    <p style='color:#e94560'>⚠️ No qualifying stocks passed the screening criteria today.</p>
+  </div>
+
+  <!-- ── WATCHLIST NEWS ── -->
+  <div class="section">
+    <div class="section-title">🗞️ Watchlist News (Last 24 Hours)</div>
+    <div class="news-company">📰 Qualcomm (QCOM)</div><p class="news-item" style="color:#9aa5b1">No recent news found.</p><div class="news-company">📰 Alphabet (Google) (GOOGL)</div><p class="news-item" style="color:#9aa5b1">No recent news found.</p><div class="news-company">📰 Oklo (OKLO)</div><p class="news-item" style="color:#9aa5b1">No recent news found.</p><div class="news-company">📰 Itochu (8001.T)</div><p class="news-item" style="color:#9aa5b1">No recent news found.</p><div class="news-company">📰 Mitsubishi (8058.T)</div><p class="news-item" style="color:#9aa5b1">No recent news found.</p><div class="news-company">📰 Mitsui (8031.T)</div><p class="news-item" style="color:#9aa5b1">No recent news found.</p><div class="news-company">📰 Sumitomo (8053.T)</div><p class="news-item" style="color:#9aa5b1">No recent news found.</p><div class="news-company">📰 Marubeni (8002.T)</div><p class="news-item" style="color:#9aa5b1">No recent news found.</p>
+  </div>
+
+  <!-- ── DISCLAIMER ── -->
+  <div class="section" style="border-left-color:#e94560; background:#fff9f9;">
+    <div class="section-title" style="color:#e94560;">⚠️ Disclaimer</div>
+    <p style="font-size:.79rem; line-height:1.7; color:#555;">
+      This report is generated automatically for <strong>personal research purposes only</strong>
+      and does <u>not</u> constitute financial advice. The Proxy DCF model is a simplified
+      heuristic based on trailing FCF and static growth assumptions — it does <u>not</u>
+      account for debt, dilution, currency risk, or qualitative moats. Always conduct
+      independent due diligence before making any investment decision.
+    </p>
+  </div>
+
+</div><!-- /wrapper -->
+<div class="footer">
+  Generated by daily_value_report.py &nbsp;·&nbsp;
+  Universe: QCOM, GOOGL, OKLO, 8001.T, 8058.T, 8031.T, 8053.T, 8002.T &nbsp;·&nbsp;
+  Powered by yfinance &amp; Google News RSS
+</div>
+</body>
+</html>
