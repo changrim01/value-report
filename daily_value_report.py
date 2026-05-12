@@ -22,7 +22,9 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 # ── Third-party ───────────────────────────────────────────────────────────────
-import feedparser          # pip install feedparser
+import urllib.request
+import xml.etree.ElementTree as ET
+from email.utils import parsedate_to_datetime
 import yfinance as yf      # pip install yfinance
 import pandas as pd        # pip install pandas
 
@@ -82,24 +84,38 @@ def fetch_news_for_ticker(ticker: str, company_name: str, max_items: int = NEWS_
         [{"title": str, "link": str, "published": str}, ...]
     """
     cutoff = datetime.now(timezone.utc) - timedelta(hours=LOOKBACK_HOURS)
-    # Use company name for better Google News recall
     query   = company_name.replace(" ", "+")
     rss_url = f"https://news.google.com/rss/search?q={query}+stock&hl=en-US&gl=US&ceid=US:en"
 
     results = []
     try:
-        feed = feedparser.parse(rss_url)
-        for entry in feed.entries:
+        req = urllib.request.Request(rss_url, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            xml_bytes = resp.read()
+
+        root = ET.fromstring(xml_bytes)
+        ns   = {"media": "http://search.yahoo.com/mrss/"}
+        channel = root.find("channel")
+        items   = channel.findall("item") if channel is not None else []
+
+        for item in items:
+            title = item.findtext("title", "N/A")
+            link  = item.findtext("link",  "#")
+            pub   = item.findtext("pubDate")
+
             pub_time = None
-            if hasattr(entry, "published_parsed") and entry.published_parsed:
-                pub_time = datetime(*entry.published_parsed[:6], tzinfo=timezone.utc)
+            if pub:
+                try:
+                    pub_time = parsedate_to_datetime(pub).astimezone(timezone.utc)
+                except Exception:
+                    pass
 
             if pub_time and pub_time < cutoff:
-                continue   # skip articles older than 24h
+                continue
 
             results.append({
-                "title":     entry.get("title", "N/A"),
-                "link":      entry.get("link",  "#"),
+                "title":     title,
+                "link":      link,
                 "published": pub_time.strftime("%Y-%m-%d %H:%M UTC") if pub_time else "N/A",
             })
 

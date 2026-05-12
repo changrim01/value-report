@@ -6,9 +6,6 @@
 # Financial data
 yfinance>=0.2.40
 
-# News RSS parsing
-feedparser>=6.0.11
-
 # Data manipulation
 pandas>=2.2.0
 
